@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import axios from "axios";
 import { Api } from "grammy";
