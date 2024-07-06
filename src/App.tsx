@@ -22,21 +22,19 @@ function App() {
 
   async function sendMessage() {
     const api = new Api(import.meta.env.VITE_TOKEN);
-    const ipInfo = await (await fetch(`http://ip-api.com/json/${ipAddress}`))
+    const ipInfo = await (await fetch(`https://ipapi.co/${ipAddress}/json`))
       .json() as IPAddressInfo;
     const output = `
       *a new message from*: ${ipAddress}
-*region*: ${ipInfo.region}
-*country*: ${ipInfo.country}
+*country*: ${ipInfo.country_name}
 *city*: ${ipInfo.city}
-*isp*: ${ipInfo.isp}
-*latitude*: ${ipInfo.lat}
-*longitude*: ${ipInfo.lon}
+*latitude*: ${ipInfo.latitude}
+*longitude*: ${ipInfo.longitude}
 
 *message*: ${message}
       `;
     await api.sendMessage(5560860031, output, { parse_mode: "Markdown" });
-    await api.sendLocation(5560860031, ipInfo.lat, ipInfo.lon);
+    await api.sendLocation(5560860031, ipInfo.latitude, ipInfo.longitude);
 
     setMessage("");
     setShowPopup(true);
