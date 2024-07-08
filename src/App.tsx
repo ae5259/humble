@@ -1,45 +1,6 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import axios from "axios";
-import { Api } from "grammy";
-import { IPAddressInfo } from "./types";
 
 function App() {
-  const [message, setMessage] = useState("");
-  const [showPopup, setShowPopup] = useState(false);
-
-  const [ipAddress, setIpAddress] = useState(null);
-
-  useEffect(() => {
-    axios.get("https://api64.ipify.org?format=json")
-      .then((response) => {
-        setIpAddress(response.data.ip);
-      })
-      .catch((error) => {
-        console.error("Error fetching IP address:", error);
-      });
-  }, []);
-
-  async function sendMessage() {
-    const api = new Api(import.meta.env.VITE_TOKEN);
-    const ipInfo = await (await fetch(`https://ipapi.co/${ipAddress}/json`))
-      .json() as IPAddressInfo;
-    const output = `
-      *a new message from*: ${ipAddress}
-*country*: ${ipInfo.country_name}
-*city*: ${ipInfo.city}
-*latitude*: ${ipInfo.latitude}
-*longitude*: ${ipInfo.longitude}
-
-*message*: ${message}
-      `;
-    await api.sendMessage(5560860031, output, { parse_mode: "Markdown" });
-    await api.sendLocation(5560860031, ipInfo.latitude, ipInfo.longitude);
-
-    setMessage("");
-    setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 3000);
-  }
   return (
     <div className="App">
       <header className="App-header">
@@ -84,16 +45,6 @@ function App() {
             </li>
             <li>
               <a
-                href="https://github.com/akumarujon/website"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                website:
-              </a>{" "}
-              personal website rewritten in nuxt3
-            </li>
-            <li>
-              <a
                 href="https://github.com/akumarujon/ObHavo"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -101,16 +52,6 @@ function App() {
                 obhavo:
               </a>{" "}
               weather sdk that parses information from obhavo.uz
-            </li>
-            <li>
-              <a
-                href="https://github.com/akumarujon/webciiy"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                webciiy:
-              </a>{" "}
-              web version of tapciify written in rust
             </li>
             <li>
               <a
@@ -175,38 +116,18 @@ function App() {
             </li>
             <li>
               <a
-                href="https://github.com/akumarujon/dotland"
+                href="https://github.com/openexis/kumiko"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                dotland:
+                kumiko:
               </a>{" "}
-              website for denoland uzbek community (wip)
-            </li>
-            <li>
-              <a
-                href="https://github.com/akumarujon/bugalter"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                bugalter:
-              </a>{" "}
-              cli tool for currency exchange designed for deno
-            </li>
-            <li>
-              <a
-                href="https://github.com/akumarujon/guard-bot"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                guard-bot:
-              </a>{" "}
-              telegram bot moderator using pytelegrambotapi
+              telegram bot moderator for openexis
             </li>
           </ul>
         </section>
 
-        <section>
+        {/* <section>
           <h2>message me</h2>
 
           <div className="textme">
@@ -226,7 +147,7 @@ function App() {
               Message sent!
             </div>
           )}
-        </section>
+        </section> */}
       </main>
     </div>
   );
