@@ -1,6 +1,41 @@
+import { useState } from "react";
 import "./App.css";
+import { v4 } from "uuid";
 
 function App() {
+  const [popUpMessage, setPopUpMessage] = useState("");
+  const [popUp, setPopUp] = useState(false);
+  const [message, setMessage] = useState("");
+
+  async function sendMessage(message: string) {
+    const data = new FormData();
+    data.append("message", message);
+    const request = await fetch(
+      "https://akumarujon-sendmessage-32.deno.dev/send",
+      {
+        method: "POST",
+        body: data,
+        headers: {
+          "token": localStorage.getItem("token") as string,
+        },
+      },
+    );
+
+    if (!request.ok) {
+      setPopUpMessage(`error: ${(await request.json()).message}`);
+      setPopUp(true);
+      return;
+    }
+
+    setPopUpMessage("message sent");
+    setPopUp(true);
+    setMessage("");
+  }
+
+  if (!localStorage.getItem("token")) {
+    localStorage.setItem("token", v4());
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -127,7 +162,7 @@ function App() {
           </ul>
         </section>
 
-        {/* <section>
+        <section>
           <h2>message me</h2>
 
           <div className="textme">
@@ -140,14 +175,21 @@ function App() {
               onChange={(e) => setMessage(e.target.value)}
             >
             </textarea>
-            <button className="send" onClick={sendMessage}>»</button>
+            <button
+              className="send"
+              onClick={async () => await sendMessage(message)}
+            >
+              »
+            </button>
           </div>
-          {showPopup && (
-            <div className="popup">
-              Message sent!
-            </div>
-          )}
-        </section> */}
+          {popUp
+            ? (
+              <div className="popup">
+                {popUpMessage}
+              </div>
+            )
+            : null}
+        </section>
       </main>
     </div>
   );

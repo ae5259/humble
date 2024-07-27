@@ -8,8 +8,6 @@
   --button-hover-bg-color: #689d6a;
 }
 
-
-
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +19,7 @@ body {
   background-color: var(--bg-color);
   color: var(--fg-color);
 }
-/* 
+
 .App {
   width: 700px;
   text-align: left;
@@ -100,7 +98,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-left: 20px; 
+  padding-left: 20px; /* Indent the list items */
   margin-bottom: 5px;
 }
 
@@ -110,6 +108,7 @@ body {
   margin-right: 10px;
 }
 
+/* Additional styles to match the image */
 h2 {
   text-transform: lowercase;
   color: var(--yellow);
@@ -123,6 +122,27 @@ p {
 
 h2, h3 {
   color: var(--primary-color)
+}
+
+textarea {
+  margin-top: 20px;
+  border-radius: 10px;
+  width: 100%;
+  resize: none;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--highlight-color)
+}
+
+.send {
+  margin-top: 20px;
+}
+
+.textme {
+  display: flex;
 }
 
 .popup {
@@ -141,192 +161,4 @@ h2, h3 {
 @keyframes fadeInOut {
   0%, 100% { opacity: 0; }
   10%, 90% { opacity: 1; }
-} */
-
-:root {
-  /* Your existing color variables */
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--fg-color);
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.App {
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: left;
-  padding: 20px;
-}
-
-.App-header {
-  background-color: var(--bg-color);
-  padding: 20px;
-  border: 2px solid var(--primary-color);
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.App-header h1 {
-  color: var(--primary-color);
-  margin-bottom: 20px;
-  font-size: 2em;
-}
-
-.App-header p {
-  color: var(--secondary-color);
-  margin-bottom: 20px;
-}
-
-.App-button {
-  background-color: var(--button-bg-color);
-  color: var(--fg-color);
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 1em;
-}
-
-.App-button:hover {
-  background-color: var(--button-hover-bg-color);
-}
-
-.about-me, .projects {
-  margin: 20px 0;
-}
-
-.projects ul {
-  list-style: none;
-  padding: 0;
-}
-
-.projects li {
-  margin: 10px 0;
-}
-
-.projects a {
-  color: var(--highlight-color);
-  text-decoration: none;
-}
-
-.projects a:hover {
-  text-decoration: underline;
-}
-
-.about-me h3 {
-  text-align: left;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  font-size: 1.2em;
-  color: var(--yellow);
-  text-transform: lowercase;
-}
-
-.tech-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.tech-list li {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-left: 20px;
-  margin-bottom: 5px;
-}
-
-.tech-list li::before {
-  content: '•';
-  color: var(--aqua);
-  margin-right: 10px;
-}
-
-h2, h3 {
-  color: var(--primary-color);
-  font-size: 1.5em;
-  margin-bottom: 15px;
-}
-
-css
-p {
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.send {
-  margin-top: 20px;
-}
-
-.popup {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--bg-color);
-  color: var(--primary-color);
-  padding: 10px 20px;
-  border-radius: 4px;
-  border: 2px solid var(--primary-color);
-  opacity: 0;
-  animation: fadeInOut 3s ease;
-  max-width: 90%;
-  text-align: center;
-}
-
-@keyframes fadeInOut {
-  0%, 100% { opacity: 0; }
-  10%, 90% { opacity: 1; }
-}
-
-@media (min-width: 768px) {
-  .popup {
-    left: auto;
-    right: 20px;
-    transform: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .App {
-    padding: 10px;
-  }
-
-  .App-header h1 {
-    font-size: 1.5em;
-  }
-
-  h2, h3 {
-    font-size: 1.2em;
-  }
-
-  .App-button {
-    padding: 8px 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-
-  .App-header {
-    padding: 15px;
-  }
-
-  .tech-list li {
-    padding-left: 10px;
-  }
 }
