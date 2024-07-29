@@ -56,6 +56,7 @@ export const useFetch = (): [
   function onError(body: ErrorBody): void {
     setPopUpMessage(`error: ${body.message}`);
     setPopUp(true);
+    setMessage("");
     setTimeout(() => {
       setPopUp(false);
     }, 3000);
