@@ -1,44 +1,9 @@
-import { useState } from "react";
+import { useFetch } from "../Hooks/useFetch";
+import { PopupDialog } from "./Popup";
 
 export default function Contact() {
-  const [popUpMessage, setPopUpMessage] = useState("");
-  const [popUp, setPopUp] = useState(false);
-  const [message, setMessage] = useState("");
-
-  async function sendMessage(message: string) {
-    const data = new FormData();
-    data.append("message", message);
-
-    const request = await fetch(
-      "https://akumarujon-sendmessage-32.deno.dev/send",
-      {
-        method: "POST",
-        body: data,
-        headers: {
-          "token": localStorage.getItem("token") as string,
-        },
-      },
-    );
-
-    const body = await request.json();
-    console.log(request.status);
-    console.log(body.message);
-
-    if (!request.ok) {
-      console.log("Works here");
-      setPopUp(true);
-      setPopUpMessage(`error: ${body.message}`);
-
-      console.log(popUp);
-      console.log(popUpMessage);
-      console.log(message);
-    }
-
-    setPopUp(true);
-    setPopUpMessage("message sent");
-    setMessage("");
-  }
-
+  const [sendMessage, { popUpMessage, popUp, setMessage, message }] =
+    useFetch();
   return (
     <>
       <section>
@@ -52,8 +17,7 @@ export default function Contact() {
             rows={5}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-          >
-          </textarea>
+          ></textarea>
           <button
             className="send"
             onClick={async () => await sendMessage(message)}
@@ -61,13 +25,7 @@ export default function Contact() {
             »
           </button>
         </div>
-        {popUp
-          ? (
-            <div className="popup">
-              {popUpMessage}
-            </div>
-          )
-          : null}
+        {popUp && <PopupDialog message={popUpMessage} />}
       </section>
     </>
   );
