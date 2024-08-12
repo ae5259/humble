@@ -31,6 +31,10 @@ a:hover {
   color: var(--link-hover-color);
 }
 
+li {
+  list-style-type: none;
+}
+
 body {
   margin: 0;
   display: flex;

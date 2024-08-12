@@ -3,6 +3,7 @@ import { v4 } from "uuid";
 
 import Info from "./components/Info";
 import Contact from "./components/Contact";
+import Friends from "./components/Friends";
 
 function App() {
   if (!localStorage.getItem("token")) {
@@ -10,19 +11,22 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>akumarujon's land</h1>
-        <p>
-          this is place where i can share information about me and my projects
-        </p>
-      </header>
+    <>
+      <div className="App">
+        <header className="App-header">
+          <h1>akumarujon's land</h1>
+          <p>
+            this is place where i can share information about me and my projects
+          </p>
+        </header>
 
-      <main>
-        <Info />
-        <Contact />
-      </main>
-    </div>
+        <main>
+          <Info />
+          <Contact />
+          <Friends />
+        </main>
+      </div>
+    </>
   );
 }
 

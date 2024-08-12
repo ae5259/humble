@@ -1,12 +1,12 @@
 export default function Info() {
-    return (
-        <>
-        <section className="about-me">
+  return (
+    <>
+      <section className="about-me">
         <h2>about me</h2>
         <p>
           my name is akmal isakulov, i am 18 years old, i am interested in
-          various things but mostly programming and i have been learning it
-          for 4 years
+          various things but mostly programming and i have been learning it for
+          4 years
         </p>
 
         <h2>technologies</h2>
@@ -116,6 +116,6 @@ export default function Info() {
           </li>
         </ul>
       </section>
-      </>
-    )
+    </>
+  );
 }

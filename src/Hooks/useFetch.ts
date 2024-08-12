@@ -13,7 +13,7 @@ interface ErrorBody {
 
 export const useFetch = (): [
   (message: string) => Promise<void>,
-  FetchState
+  FetchState,
 ] => {
   const [popUpMessage, setPopUpMessage] = useState<string>("");
   const [popUp, setPopUp] = useState<boolean>(false);
@@ -37,7 +37,7 @@ export const useFetch = (): [
           headers: {
             token: localStorage.getItem("token") as string,
           },
-        }
+        },
       );
 
       const body = await request.json();
