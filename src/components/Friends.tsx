@@ -5,8 +5,7 @@ export default function Friends() {
     {
       name: "tapnisu",
       link: "https://tapni.su",
-      image:
-        "https://tapni.su/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Favatar.862fd3d1.webp&w=2048&q=75",
+      image: "https://avatars.githubusercontent.com/u/57483029?v=4",
     },
   ];
 

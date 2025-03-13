@@ -15,7 +15,7 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background-color: var(--bg-color);
   color: var(--fg-color);
 }
@@ -103,7 +103,7 @@ body {
 }
 
 .tech-list li::before {
-  content: '•';
+  content: "•";
   color: var(--aqua);
   margin-right: 10px;
 }
@@ -119,9 +119,8 @@ p {
   text-align: left;
 }
 
-
 h2, h3 {
-  color: var(--primary-color)
+  color: var(--primary-color);
 }
 
 textarea {
@@ -132,9 +131,9 @@ textarea {
   padding: 12px 20px;
   box-sizing: border-box;
   font-size: 20px;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background-color: var(--bg-color);
-  color: var(--highlight-color)
+  color: var(--highlight-color);
 }
 
 .send {
@@ -159,6 +158,10 @@ textarea {
 }
 
 @keyframes fadeInOut {
-  0%, 100% { opacity: 0; }
-  10%, 90% { opacity: 1; }
+  0%, 100% {
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
 }
