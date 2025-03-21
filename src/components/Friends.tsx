@@ -19,7 +19,7 @@ export default function Friends() {
               src={friend.image}
               alt={friend.name}
               width={"30px"}
-              style={{ marginRight: "20px" }}
+              style={{ marginRight: "20px", borderRadius: "15px" }}
             />
             <a href={friend.link} target="_blank" rel="noopener noreferrer">
               {friend.name}
