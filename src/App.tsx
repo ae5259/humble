@@ -6,6 +6,7 @@ import links from "../public/links.json";
 import Info from "./components/Info";
 import Contact from "./components/Contact";
 import Friends from "./components/Friends";
+import SEO from "./components/SEO";
 
 function App() {
   if (!localStorage.getItem("token")) {
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <>
+      <SEO />
       <div className="App">
         <div className="links content-center p-3">
           {links.map((el) => (
