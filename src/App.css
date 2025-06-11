@@ -6,6 +6,8 @@
   --highlight-color: #fabd2f;
   --button-bg-color: #458588;
   --button-hover-bg-color: #689d6a;
+  --yellow: #fabd2f;
+  --aqua: #8ec07c;
 }
 
 * {
@@ -15,15 +17,34 @@
 }
 
 body {
-  font-family: "Arial", sans-serif;
-  background-color: var(--bg-color);
-  color: var(--fg-color);
+  font-size: 16px;
 }
 
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .App-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .App-header p,
+  p,
+  li {
+    font-size: 0.95rem;
+  }
+
+  textarea {
+    font-size: 1rem;
+  }
+}
 .App {
-  width: 700px;
-  text-align: left;
+  max-width: 700px;
+  width: 100%;
   padding: 20px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .App-header {
@@ -50,20 +71,31 @@ body {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 .App-button:hover {
   background-color: var(--button-hover-bg-color);
 }
 
-.about-me, .projects {
+.about-me,
+.projects {
   margin: 20px 0;
 }
 
-.projects ul {
+.about-me h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: var(--yellow);
+  text-transform: lowercase;
+}
+
+.projects ul,
+.tech-list {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .projects li {
@@ -79,26 +111,10 @@ body {
   text-decoration: underline;
 }
 
-.about-me h3 {
-  text-align: left;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  font-size: 1.2em;
-  color: var(--yellow);
-  text-transform: lowercase;
-}
-
-.tech-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
 .tech-list li {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  padding-left: 20px; /* Indent the list items */
+  padding-left: 20px;
   margin-bottom: 5px;
 }
 
@@ -108,10 +124,14 @@ body {
   margin-right: 10px;
 }
 
-/* Additional styles to match the image */
-h2 {
+h2,
+h3 {
+  color: var(--primary-color);
   text-transform: lowercase;
-  color: var(--yellow);
+}
+
+h2 {
+  margin-bottom: 10px;
 }
 
 p {
@@ -119,21 +139,18 @@ p {
   text-align: left;
 }
 
-h2, h3 {
-  color: var(--primary-color);
-}
-
 textarea {
-  margin-top: 20px;
-  border-radius: 10px;
   width: 100%;
-  resize: none;
+  max-width: 100%;
+  margin-top: 20px;
   padding: 12px 20px;
-  box-sizing: border-box;
+  border-radius: 10px;
+  resize: none;
   font-size: 20px;
-  font-family: "Arial", sans-serif;
+  font-family: Arial, sans-serif;
   background-color: var(--bg-color);
   color: var(--highlight-color);
+  border: 1px solid var(--primary-color);
 }
 
 .send {
@@ -164,4 +181,14 @@ textarea {
   10%, 90% {
     opacity: 1;
   }
+}
+
+@media (max-width: 480px) {
+  .App {
+    padding: 10px;
+  }
+}
+
+p, li {
+  line-height: 1.6;
 }
