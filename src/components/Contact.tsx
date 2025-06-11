@@ -12,22 +12,30 @@ export default function Contact() {
         <h2>message me</h2>
 
         <div className="textme">
-          <textarea
-            className="textarea"
-            name="message"
-            id="message"
-            cols={10}
-            rows={5}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          >
-          </textarea>
-          <button
-            className="send"
-            onClick={async () => await sendMessage(message)}
-          >
-            »
-          </button>
+          <div className="input-wrapper">
+            <textarea
+              className="textarea"
+              name="message"
+              id="message"
+              cols={10}
+              rows={5}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Type your message here..."
+            />
+            <button
+              className="send"
+              onClick={async () => {
+                if (message.trim()) {
+                  await sendMessage(message);
+                  setMessage("");
+                }
+              }}
+              disabled={!message.trim()}
+            >
+              »
+            </button>
+          </div>
         </div>
         {popUp && <PopupDialog message={popUpMessage} />}
       </section>

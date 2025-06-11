@@ -192,3 +192,55 @@ textarea {
 p, li {
   line-height: 1.6;
 }
+
+.textme {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.textarea {
+  width: 100%;
+  padding: 1rem;
+  padding-right: 3rem; /* space for the button */
+  font-size: 1rem;
+  border: 2px solid #cddc39;
+  border-radius: 0.75rem;
+  background-color: #1e1e1e;
+  color: #fff;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.send {
+  position: absolute;
+  top: 65%;
+  right: 10px;
+  transform: translateY(-50%);
+  background-color: #cddc39;
+  color: #000;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .textarea {
+    font-size: 0.95rem;
+  }
+
+  .send {
+    font-size: 1rem;
+    padding: 5px 8px;
+  }
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
