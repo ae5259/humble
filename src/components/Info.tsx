@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function Info() {
   const [isPopoverVisible, setIsPopoverVisible] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [_, setAnchorEl] = useState(null);
 
   const age = 19;
 
