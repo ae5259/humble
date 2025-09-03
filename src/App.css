@@ -10,6 +10,32 @@
   --aqua: #8ec07c;
 }
 
+.age {
+  text-decoration: underline;
+}
+
+.popover {
+  font-size: 22px;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  background-color: var(--bg-color) !important;
+  border: 1px solid var(--primary-color) !important;
+  padding: 5px 10px !important;
+  z-index: 1000 !important;
+  white-space: nowrap !important;
+  width: max-content !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+  border-radius: 4px !important;
+}
+
+span[style*="position: relative"] {
+  vertical-align: top !important;
+  overflow: visible !important;
+}
+
 ::-moz-selection {
   /* Code for Firefox */
   color: var(--bg-color);
@@ -28,7 +54,7 @@
 }
 
 body {
-  font-size: 16px;
+  font-size: 22px;
 }
 
 @media (max-width: 480px) {
@@ -51,7 +77,7 @@ body {
   }
 }
 .App {
-  max-width: 700px;
+  max-width: 900px;
   width: 100%;
   padding: 20px;
   margin: 0 auto;

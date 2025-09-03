@@ -1,12 +1,45 @@
+import { useState } from "react";
+
 export default function Info() {
+  const [isPopoverVisible, setIsPopoverVisible] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const age = 19;
+
+  const handleMouseEnter = (event: any) => {
+    setIsPopoverVisible(true);
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMouseLeave = () => {
+    setIsPopoverVisible(false);
+    setAnchorEl(null);
+  };
+
   return (
     <>
       <section className="about-me">
         <h2>about me</h2>
         <p>
-          my name is akmal isakulov, i am 18 years old, i am interested in
-          various things but mostly programming and i have been learning it for
-          4 years
+          my name is akmal isakulov, i am{" "}
+          <span
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            style={{ position: "relative", display: "inline-block" }}
+          >
+            <span style={{ color: "#b8bb26" }}>
+              {age.toString(2)}↱
+            </span>{" "}
+            {isPopoverVisible && (
+              <div className="popover">
+                It is in binary format.
+                <br />
+                Convert it to decimal number.
+              </div>
+            )}
+          </span>{" "}
+          years old, i am interested in various things but mostly programming
+          and i have been learning it for 4 years
         </p>
 
         <h2>technologies</h2>
