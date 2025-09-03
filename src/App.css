@@ -10,6 +10,17 @@
   --aqua: #8ec07c;
 }
 
+::-moz-selection {
+  /* Code for Firefox */
+  color: var(--bg-color);
+  background: var(--primary-color);
+}
+
+::selection {
+  color: var(--bg-color);
+  background: var(--primary-color);
+}
+
 * {
   margin: 0;
   padding: 0;

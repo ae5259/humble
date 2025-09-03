@@ -23,7 +23,7 @@ function App() {
           ))}
         </div>
         <header className="App-header">
-          <h1>akumarujon's land</h1>
+          <h1>akmal's land</h1>
           <p>
             this is place where i can share information about me and my projects
           </p>
